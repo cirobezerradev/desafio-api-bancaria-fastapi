@@ -116,3 +116,24 @@ class AccountStatementOut(BaseModelOut):
         )
     ]
     transactions: list[TransactionOut]
+
+
+class AccountUpdate(BaseModelOut):
+    holder_name: Annotated[
+        str | None,
+        Field(
+            description='Nome do titular',
+            max_length=30,
+            default=None
+        )
+    ]
+    # balance: Annotated[
+    #     Decimal | None,
+    #     Field(
+    #         description='Saldo Atual',
+    #         default=None
+    #     )
+    # ]
+
+    class Config:
+        extra = 'ignore'
