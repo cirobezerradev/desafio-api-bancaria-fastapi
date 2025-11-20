@@ -19,10 +19,10 @@ router = APIRouter()
         status_code=status.HTTP_201_CREATED
 )
 async def create_account(
-    account: AccountIn,
+    account_data: AccountIn,
     session: DBSession
 ):
-    account = AccountModel(**account.model_dump())
+    account = AccountModel(**account_data.model_dump())
     try:
         session.add(account)
         await session.commit()
@@ -111,7 +111,7 @@ async def update_account(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=f'Não foi possível atualizar a conta: {e}'
         )
- 
+
     return account
 
 

@@ -9,34 +9,6 @@ class BaseModelOut(BaseModel):
         from_attributes = True
 
 
-class TransactionIn(BaseModel):
-    type: Annotated[
-        str,
-        Field(
-            description='Tipo da Transação',
-            max_length=15
-        )
-    ]
-    value: Annotated[
-        Decimal,
-        Field(
-            description='Valor da Transação'
-        )
-    ]
-    account_id: Annotated[
-        int,
-        Field(
-            description='Id da Conta'
-        )
-    ]
-    created_at: Annotated[
-        datetime,
-        Field(
-            description='Data da Transação'
-        )
-    ]
-
-
 class TransactionOut(BaseModelOut):
     id: Annotated[
         int,
@@ -67,5 +39,35 @@ class TransactionOut(BaseModelOut):
         datetime,
         Field(
             description='Data da Transação'
+        )
+    ]
+
+
+class DepositIn(BaseModel):
+    account_id: Annotated[
+        int,
+        Field(
+            description='Id da Conta'
+        )
+    ]
+    value: Annotated[
+        Decimal,
+        Field(
+            description='Valor do Depósito'
+        )
+    ]
+
+
+class WithdrawIn(BaseModel):
+    account_id: Annotated[
+        int,
+        Field(
+            description='Id da conta'
+        )
+    ]
+    value: Annotated[
+        Decimal,
+        Field(
+            description='Valor do Saque'
         )
     ]

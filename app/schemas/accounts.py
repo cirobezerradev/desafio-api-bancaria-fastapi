@@ -127,13 +127,6 @@ class AccountUpdate(BaseModelOut):
             default=None
         )
     ]
-    # balance: Annotated[
-    #     Decimal | None,
-    #     Field(
-    #         description='Saldo Atual',
-    #         default=None
-    #     )
-    # ]
 
     class Config:
         extra = 'ignore'
