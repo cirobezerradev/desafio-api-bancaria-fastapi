@@ -7,5 +7,7 @@ wheels/
 *.egg-info
 migrations/
 alembic.ini
+.env
+teste.py
 # Virtual environments
 .venv

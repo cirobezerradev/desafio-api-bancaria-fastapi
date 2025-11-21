@@ -7,11 +7,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.database import get_session
 from app.models import TransactionModel, AccountModel
 from app.schemas.transactions import TransactionOut, DepositIn, WithdrawIn
+from app.services.security import login_required
 
 
 DBSession = Annotated[AsyncSession, Depends(get_session)]
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(login_required)])
 
 
 @router.post(

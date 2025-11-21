@@ -20,28 +20,28 @@ class AccountIn(BaseModel):
             max_length=30
         )
     ]
-    account_number: Annotated[
-        str | None,
-        Field(
-            description='Número da Conta',
-            examples=['1'],
-            max_length=6,
-            default=None
-        )
-    ]
-    agency_code: Annotated[
-        str,
-        Field(
-            description='Codigo da Agência',
-            default=STANDARD_AGENCY
-        )
-    ]
-    balance: Annotated[
-        Decimal,
-        Field(
-            description='Saldo da Conta'
-        )
-    ]
+    # account_number: Annotated[
+    #     str | None,
+    #     Field(
+    #         description='Número da Conta',
+    #         examples=['1'],
+    #         max_length=6,
+    #         default=None
+    #     )
+    # ]
+    # agency_code: Annotated[
+    #     str,
+    #     Field(
+    #         description='Codigo da Agência',
+    #         default=STANDARD_AGENCY
+    #     )
+    # ]
+    # balance: Annotated[
+    #     Decimal,
+    #     Field(
+    #         description='Saldo da Conta'
+    #     )
+    # ]
 
 
 class AccountOut(BaseModelOut):

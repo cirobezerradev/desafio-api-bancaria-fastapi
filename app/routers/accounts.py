@@ -5,12 +5,15 @@ from fastapi import APIRouter, Depends, status, HTTPException
 
 from app.core.database import get_session
 from app.schemas.accounts import AccountOut, AccountIn, AccountUpdate
+from app.services.security import login_required
 from app.models import AccountModel
+
 
 # Aliás de sessão e dependência
 DBSession = Annotated[AsyncSession, Depends(get_session)]
 
-router = APIRouter()
+
+router = APIRouter(dependencies=[Depends(login_required)])
 
 
 @router.post(

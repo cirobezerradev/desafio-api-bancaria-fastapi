@@ -25,7 +25,7 @@ class AccountModel(Base):
         String(10),
         default=STANDARD_AGENCY
         )
-    balance: Mapped[Decimal] = mapped_column(Numeric(12, 2))
+    balance: Mapped[Decimal] = mapped_column(Numeric(12, 2), default=0)
     transactions: Mapped[list['TransactionModel']] = relationship(
         back_populates='account',
         lazy='selectin',
