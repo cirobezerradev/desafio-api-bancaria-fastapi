@@ -8,7 +8,7 @@ router = APIRouter()
 
 
 @router.post(
-    path='/',
+    path='/login',
     response_model=LoginOut,
     status_code=status.HTTP_201_CREATED
 )

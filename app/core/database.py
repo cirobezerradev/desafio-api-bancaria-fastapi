@@ -1,13 +1,11 @@
-from dotenv import load_dotenv
 from sqlalchemy.ext.asyncio import (
     create_async_engine,
     AsyncSession,
     async_sessionmaker)
-import os
 
-load_dotenv()
+from app.core.settings import settings
 
-DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL = settings.DATABASE_URL
 
 engine = create_async_engine(DATABASE_URL)
 

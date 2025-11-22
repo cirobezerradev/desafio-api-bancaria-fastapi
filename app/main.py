@@ -2,25 +2,24 @@ from fastapi import FastAPI
 from app.routers.auth import router as auth_router
 from app.routers.accounts import router as account_router
 from app.routers.transactions import router as transaction_router
+from app.core.settings import api_metadata
 
-app = FastAPI(
-    title='API Bancária',
-    )
+app = FastAPI(**api_metadata)
 
 app.include_router(
     auth_router,
-    prefix='/api/v1/auth',
+    prefix='/auth',
     tags=['auth']
 )
 
 app.include_router(
     account_router,
-    prefix='/api/v1/accounts',
+    prefix='/accounts',
     tags=['accounts']
 )
 
 app.include_router(
     transaction_router,
-    prefix='/api/v1/transactions',
-    tags=['tansactions']
+    prefix='/transactions',
+    tags=['transactions']
 )

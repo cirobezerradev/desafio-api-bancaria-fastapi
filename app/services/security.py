@@ -1,19 +1,17 @@
 from datetime import datetime, timedelta, timezone
 from typing import Annotated
 
-from dotenv import load_dotenv
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer
 import jwt
 from jwt import ExpiredSignatureError
-import os
 
+from app.core.settings import settings
 from app.schemas.auth import JWTToken
 
-load_dotenv()
 
-SECRET = os.getenv('SECRET')
-ALGORITHM = os.getenv('STATEMENT')
+SECRET = settings.SECRET
+ALGORITHM = settings.ALGORITHM
 
 
 def sign_token(user_id: int) -> JWTToken:
